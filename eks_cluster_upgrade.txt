@@ -1,0 +1,23 @@
+# Update eksctl
+eksctl version
+
+# Check current cluster version
+eksctl get cluster --name my-cluster
+
+# Upgrade the control plane
+eksctl upgrade cluster --name my-cluster --version 1.26
+
+# Verify the upgrade
+kubectl get nodes
+
+# List node groups
+eksctl get nodegroup --cluster my-cluster
+
+# Upgrade each node group
+eksctl upgrade nodegroup --cluster my-cluster --name my-nodegroup --kubernetes-version 1.26
+
+# List add-ons
+eksctl get addons --cluster my-cluster
+
+# Upgrade each add-on
+eksctl update addon --cluster my-cluster --name metrics-server --version latest
